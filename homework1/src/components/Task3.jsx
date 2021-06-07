@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import '../css/style.css'
 
 function getData(props) {
     return new Promise((resolve) => resolve(props));
@@ -12,9 +13,8 @@ export const Days = (props) => {
         getData(props).then((result) => {
             setDays(result.days);
             setImages(result.images);
-            //console.log("result.days, result.images", result.days, result.images);
         })
-        console.log("days, images", days, images);
+        // console.log("days, images", days, images);
     }, [days, images, props])
     return (
         <ul>
@@ -30,13 +30,14 @@ class Day extends React.Component{
     constructor(props){
         super(props);
         this.state = {tasks: [], image: []};
-        console.log("props", props);
+        // console.log("props", props);
     }
     componentDidMount(){
-        console.log("componentDidMount");
         getData(this.props).then((result) => {
-            console.log("result", result);
+            // console.log("result", result);
             this.setState({tasks: result.tasks, image: result.image})
+            // console.log(this.state.tasks);
+            // console.log(this.state.image);
         })
     }
 
@@ -54,13 +55,10 @@ class Day extends React.Component{
 
 const TaskList = (props) => {
     let arr =[];
-    let isDone = false;
     for(let key in props.tasks){
-        isDone = (key <= 5) ? true : false;
-        arr.push(<ListItem key={key} task ={props.tasks[key]} isDone={isDone}/>);
+        arr.push(<ListItem key={key} task ={props.tasks[key].name} isDone={props.tasks[key].isDone}/>);
     }
-    //console.log(arr);
-    return <ul style={{listStyle: 'none'}}>
+    return <ul>
                 {arr}
             </ul>;
 }
@@ -68,7 +66,7 @@ const TaskList = (props) => {
 
 function ListItem (props){
     if(props.isDone){
-        return <li style={{textDecoration: 'line-through'}}>
+        return <li className='taskIsDone'>
                   {props.task}
                </li>
     }
