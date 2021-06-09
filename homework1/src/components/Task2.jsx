@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 export const Buttons = (props) => {
     return(
@@ -19,10 +20,21 @@ export const Buttons = (props) => {
     );
 }
 
-class Button extends React.Component{
+Buttons.propTypes = {
+    colors: PropTypes.arrayOf(
+        PropTypes.oneOfType([
+            PropTypes.string,
+        ])
+    ).isRequired,
+}
+
+class Button extends React.PureComponent{
     render(){
         return(
             <button className={this.props.color} style={{backgroundColor: this.props.color}}>{this.props.color}</button>
         )
     }
+}
+Button.propTypes = {
+    color: PropTypes.string.isRequired,
 }
