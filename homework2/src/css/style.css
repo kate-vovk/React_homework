@@ -1,0 +1,41 @@
+.container{
+    list-style: none;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    background-color: cornflowerblue;
+    margin-bottom: 10px;
+}
+
+.container h2, p {
+    margin: 0;
+    padding: 10px;
+}
+
+.container h2{
+    background-color: coral;
+    text-align: center;
+}
+
+.container p{
+    background-color: aquamarine;
+    text-align: justify;
+}
+
+.container p.user{
+    background-color:darkorchid;
+    color: whitesmoke;
+}
+
+.paggination button{
+    background-color: white;
+    border: 1px solid #ddd;
+}
+.paggination button:active{
+    background-color: rgb(2, 120, 255);
+    color: white;
+}
+.paggination .focus{
+    background-color: rgb(2, 120, 255);
+    color: white;
+}
