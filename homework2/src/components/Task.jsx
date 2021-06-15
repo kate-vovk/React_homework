@@ -6,7 +6,6 @@ import '../css/style.css'
 
 export const Posts = (props) => {
     const pages = []; 
-    const firstTaskPageAmount = 10;
     const secondTaskPageAmount = 20;
 
     const [posts, setPosts] = React.useState([]);
@@ -15,7 +14,7 @@ export const Posts = (props) => {
     const [isLoading, setLoading] = React.useState(false);
     const URL = `https://jsonplaceholder.typicode.com/posts?_page=${currentPage}&_limit=${postAmount}`
     
-    const isDisabled = (currentPage===firstTaskPageAmount && postAmount===10) || (currentPage===secondTaskPageAmount && postAmount===20);
+    const isDisabled = (postAmount === 100);
 
     for (let i = 1; i<= 5; i++){
         pages.push(i);
@@ -31,12 +30,13 @@ export const Posts = (props) => {
     }
 
     React.useEffect(() => {
+        console.log("useEffect");
         setLoading(true);
         onGetPostsHandler(currentPage, postAmount);
     }, [currentPage, postAmount]);
 
     const onClickBtnHandler = () => {
-        onGetPostsHandler(currentPage+1, firstTaskPageAmount);
+        setPostAmount(postAmount+10);
     }
 
     const onClickPageHandler = (event) => {
