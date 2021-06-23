@@ -2,14 +2,6 @@
 /** @jsx jsx */
 import { css } from '@emotion/react'
 
-// // import { styled } from '@material-ui/core/styles';
-// import { MyForm } from '../components/MyForm'
-
-// export const Styled = styled(MyForm)`
-//     color:blue;
-//     `
-// ;
-
 export const formStyle = css`
     display: flex;
     flex-direction:column;

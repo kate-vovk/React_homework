@@ -31,7 +31,6 @@ export function Modal({open, setOpen, data, setData}) {
 
     const onClickSendData = (inputData) => {
         inputData.seconds = timerValue;
-        console.log('timer', timerValue);
         const dataTemp = data;
         dataTemp.push(inputData);
         setData(dataTemp);
