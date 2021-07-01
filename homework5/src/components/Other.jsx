@@ -7,7 +7,7 @@ const Electronics = props => {
     React.useEffect(()=> {
         getElectronics({limit:6}).then(products => {
             setElectronics(products);
-            console.log('response', products);
+            // console.log('response', products);
         })
         // console.log(electronics);
     }, [electronics])

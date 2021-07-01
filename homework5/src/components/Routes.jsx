@@ -9,27 +9,16 @@ import {
   } from "react-router-dom";
   
   
-  const Routes = props => {
+  const Routes = () => {
     return (
         <div>
             <Switch>
-              {routes.map((route, index) => (
-                <Route key={index} path={route.path} exact={route.exact}  
+              {routes.map((route, index) => {
+                console.log(route.path);
+                return <Route key={index} path={route.path} exact={route.exact}  
                 component={route.component}
-                // >{route.component}</Route>
-                // render = {(props) => (<route.component {...props} routes={route.routes} />)} 
               />
-            ))}
-              {/* <Route exact path='/' render={()=> <p>Home</p>} />
-              <Route path='/contacts' >
-                <Contacts />
-              </Route>
-              <Route path='/electronics' >
-                <Electronics />
-              </Route>
-              <Route>
-                <NotFound />
-              </Route> */}
+              })}
             </Switch>
         </div>
     )

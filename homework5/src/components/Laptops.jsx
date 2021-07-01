@@ -1,16 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { laptops, getLaptopMarks } from '../api/laptops'
-import { Link, Switch, Route, useRouteMatch, useParams} from 'react-router-dom'
-import LaptopMarks from './LaptopMarks'
-
+import { getLaptopMarks } from '../api/laptops'
+import { Link, useRouteMatch, useParams} from 'react-router-dom'
+import GoBack from './GoBack'
 const Laptops = props => {
     const {url, path} = useRouteMatch();
     const { subPath} = useParams();
 
-    console.log(subPath, url, path);
+    // console.log(subPath, url, path);
     const laptopMarks = getLaptopMarks();
-    console.log("laptopMarks", laptopMarks, laptopMarks.length===0);
+    // console.log("laptopMarks", laptopMarks, laptopMarks.length===0);
     return (
         <div>
             <ul>
@@ -19,13 +18,9 @@ const Laptops = props => {
                 }
             ) }
             </ul>
-            <Switch>
-                <Route path={`${path}/:markPath`}><LaptopMarks /></Route>
-                {/* <Route exact path='/electronics/laptops'> */}
-                {/* </Route> */}
-            </Switch>
+            <GoBack />
+
         </div>
-        
     )
 }
 
