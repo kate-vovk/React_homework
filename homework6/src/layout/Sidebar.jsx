@@ -5,7 +5,6 @@ import {
   } from "react-router-dom";
 
 import Drawer from '@material-ui/core/Drawer';
-import Divider from '@material-ui/core/Divider';
 import Toolbar from '@material-ui/core/Toolbar';
 import { List, ListItem } from '@material-ui/core';
 

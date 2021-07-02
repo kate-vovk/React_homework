@@ -30,7 +30,7 @@ export const Posts = (props) => {
     }
 
     React.useEffect(() => {
-        console.log("useEffect");
+        // console.log("useEffect");
         setLoading(true);
         onGetPostsHandler(currentPage, postAmount);
     }, [currentPage, postAmount]);

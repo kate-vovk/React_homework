@@ -9,13 +9,36 @@ export const laptops = [
 
 ]
 
+// export const getLaptopMarks = () => [...new Set(laptops.map(({subcategory, mark}) => {
+//     if(subcategory === 'laptops' ){
+//         console.log(subcategory === 'laptops');
+//         return mark;
+//     }
+// }))];
 export const getLaptopMarks = () => {
-  const filteredObjects = laptops.filter((laptop) => laptop.subcategory === 'laptops');
+ const filteredObjects = laptops.filter((laptop) => {
+    if(laptop.subcategory === 'laptops' ){
+        return laptop;
+    }});
+    // console.log('filteredObjects', Boolean(filteredObjects));
   return [...new Set(filteredObjects.map(laptop => laptop.mark))];
 }
 
+// export const getMarkModels = (currentSubcategory, currentMark) => laptops.map(({subcategory, mark, model}) => {
+//     console.log('getMarkModels', model, subcategory === currentSubcategory && mark === currentMark)
+//     if(subcategory === currentSubcategory && mark === currentMark){
+//         return model;
+//     }
+// });
+// export const getMarkModels = (currentSubcategory, currentMark) => [...new Set(laptops.map(({subcategory, mark, model}) => {
+//     console.log('getMarkModels', model, subcategory === currentSubcategory && mark === currentMark)
+//     if(subcategory === currentSubcategory && mark === currentMark){
+//         return model;
+//     }
+// }))];
 export const getMarkModels = (currentSubcategory, currentMark) => {
     const filteredObjects = laptops.filter((laptop) => {
+    // console.log('getMarkModels', laptop.model, laptop.subcategory === currentSubcategory && laptop.mark === currentMark)
     if(laptop.subcategory === currentSubcategory && laptop.mark === currentMark){
         return laptop;
     }});

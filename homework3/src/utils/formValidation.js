@@ -1,4 +1,5 @@
 export const validateForm = (props) => {
+    // console.log("props", props);
     const errors = {}
     if(!props.login) {
         errors.login = 'login is required'
