@@ -6,13 +6,14 @@ import Laptops from "../components/Laptops"
 import Electronics from "../components/Electronics"
 import LaptopMark from "../components/LaptopMark"
 import MarkModel from "../components/MarkModel"
-
+import Home from "../components/Home/Home"
 
 export const routes=[
     {
         path:'/', 
         exact: true,
-        component: () => { return <p>Home</p>},
+        name: 'Home',
+        component: Home,
     },
     {
         path:'/contacts', 
@@ -43,7 +44,7 @@ export const routes=[
     {
         path:'/electronics/laptops', 
         exact: true,
-        name: 'Electronics laptops',
+        name: 'Laptops',
         component: Laptops,
     },
     {
@@ -53,11 +54,13 @@ export const routes=[
     },
     {
         path:'/electronics/laptops/:mark', 
-        name: 'Laptop marks',
+        name: 'Laptop mark',
         component: LaptopMark,
-    },
-    
+    },  
     {
         component: NotFound,
     },
 ]
+
+
+export const getRoute = (path) => routes.find(item => item.path===path);

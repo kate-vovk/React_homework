@@ -1,23 +1,20 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, Route, Switch, useRouteMatch, useLocation } from 'react-router-dom'
-import { routes } from '../service/RoutesConfig'
-import GoBack from './GoBack'
-import GoHome from './GoHome'
+import { Link, useRouteMatch } from 'react-router-dom'
+import {getRoute } from '../service/RoutesConfig'
 
 const Electronics = props => {
     const {url} = useRouteMatch();
-    const electronicsRoutes = routes.find(item => item.path==='/electronics');
+    const route = getRoute(url);
     return ( 
         <div>
-            <h2>Electronics </h2> 
+            <h1>{route.name} </h1> 
             <ul>
-                {electronicsRoutes.routes.map(({path, name}) => (
+                {route.routes.map(({path, name}) => (
                     <li><Link to={`${url}/${path}`}>{name}</Link></li>
                 ))}
             </ul>
-            <GoBack />
         </div>     
     )
 }

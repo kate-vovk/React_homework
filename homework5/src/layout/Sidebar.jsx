@@ -1,9 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {
-    BrowserRouter,
-    Switch,
-    Route,
     Link,
   } from "react-router-dom";
 
@@ -20,8 +17,6 @@ const Sidebar = props => {
             <ListItem><Link to='/'>Home </Link></ListItem>
             <ListItem><Link to='/contacts'>Contacts</Link></ListItem>
             <ListItem><Link to='/electronics'>Electronics</Link></ListItem>
-            {/* <li><Link to='/electronics/other'>Other</Link></li> */}
-
           </List>
         </Toolbar>
         
