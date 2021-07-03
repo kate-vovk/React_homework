@@ -7,6 +7,8 @@ import Electronics from "../components/Electronics"
 import LaptopMark from "../components/LaptopMark"
 import MarkModel from "../components/MarkModel"
 import Home from "../components/Home/Home"
+import Admin from "../components/Admin/Admin"
+import Login from "../components/Login/Login"
 
 export const routes=[
     {
@@ -57,6 +59,17 @@ export const routes=[
         name: 'Laptop mark',
         component: LaptopMark,
     },  
+    {
+        path:'/login', 
+        name: 'Login page',
+        component: Login,
+    },
+    {
+        path:'/admin', 
+        private: true,
+        name: 'Admin page',
+        component: Admin,
+    },
     {
         component: NotFound,
     },

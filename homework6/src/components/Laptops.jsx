@@ -14,7 +14,7 @@ const Laptops = props => {
             <ul>
             <h1>{route.name}</h1>
             {laptopMarks.map(mark => {
-                    return <li ><Link to={`${url}/${mark}`}>{mark}</Link></li>
+                    return <li key={mark}><Link to={`${url}/${mark}`}>{mark}</Link></li>
                 }
             ) }
             </ul>

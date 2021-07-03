@@ -12,7 +12,7 @@ const Electronics = props => {
             <h1>{route.name} </h1> 
             <ul>
                 {route.routes.map(({path, name}) => (
-                    <li><Link to={`${url}/${path}`}>{name}</Link></li>
+                    <li key={name}><Link to={`${url}/${path}`}>{name}</Link></li>
                 ))}
             </ul>
         </div>     

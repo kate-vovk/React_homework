@@ -5,16 +5,21 @@ import {
     Switch,
     Route,
   } from "react-router-dom";
-  
-  
+import PrivateRoute from './PrivateRoute.jsx';
+import Admin from './Admin/Admin.jsx';
+
   const Routes = () => {
     return (
         <div>
             <Switch>
               {routes.map((route, index) => {
-                return <Route key={index} path={route.path} exact={route.exact}  component={route.component}
-              />
+                if(route.private) { 
+                  console.log("private", route.name);
+                  return  <PrivateRoute key={index} path={route.path} component={route.component} />
+              }
+                else return <Route key={index} path={route.path} exact={route.exact} component={route.component}/>
               })}
+             
             </Switch>
         </div>
     )

@@ -4,22 +4,23 @@ import {
     Link,
   } from "react-router-dom";
 
-import Drawer from '@material-ui/core/Drawer';
-import Toolbar from '@material-ui/core/Toolbar';
 import { List, ListItem } from '@material-ui/core';
+import { SidebarToolbarStyled, SidebarDrawerStyled } from './styles';
 
 const Sidebar = props => {
     return (
-       <Drawer variant='permanent' >
-        <Toolbar >
+       <SidebarDrawerStyled variant='permanent'>
+        <SidebarToolbarStyled>
           <List>
             <ListItem><Link to='/'>Home </Link></ListItem>
             <ListItem><Link to='/contacts'>Contacts</Link></ListItem>
             <ListItem><Link to='/electronics'>Electronics</Link></ListItem>
+            <ListItem><Link to='/admin'>Admin page</Link></ListItem>
+
           </List>
-        </Toolbar>
+        </SidebarToolbarStyled>
         
-      </Drawer>
+      </SidebarDrawerStyled>
     )
 }
 
