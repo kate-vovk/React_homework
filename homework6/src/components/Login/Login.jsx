@@ -12,9 +12,11 @@ const Login = props => {
     const auth = useAuth();
     const {from} = location.state || {from: {pathname:"/"}};
     
-    const onLoginClickHandler = ({username}) => {
-        if(username !== ""){
-            auth.signin(username, () => {history.replace(from.pathname);}
+    const onLoginClickHandler = ({username, password}) => {
+        if(username !== "" && password !== "" ){
+            localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
+            auth.signin(username, password, () => {history.replace(from.pathname);}
             )
         }
     };

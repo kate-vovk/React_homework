@@ -8,7 +8,7 @@ const authContext = createContext();
 
 const auth = {
     isAuthenticated: false,
-    signin(func) {
+    signin(func = () => {}) {
         auth.isAuthenticated = true;
         func();
     },
@@ -18,21 +18,31 @@ const auth = {
 };
 
 const useProvideAuth = () =>{
-    const [user, setUser] = React.useState(null);
+    const [user, setUsername] = React.useState(localStorage.getItem('username'));
+    const [password, setPassword] = React.useState(localStorage.getItem('password'));
 
-    const signin = (username, func) => {
+    React.useEffect (() => {
+        if (user!== null && password!== null && auth.isAuthenticated === false){
+            signin(user, password);
+        }
+
+    }, []);
+
+    const signin = (username, password, func = () => {}) => {
         return auth.signin(() => {
-            setUser(username);
+            setUsername(username);
+            setPassword(password);
             func();
         })
     };
     const signout = () => {
+        localStorage.clear();
         return auth.signin(() => {
-            setUser(null);
+            setUsername(null);
         })
     };
 
-    return { user, signin, signout};
+    return { user, password, signin, signout};
 } 
 
 
